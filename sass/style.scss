@@ -13,5 +13,85 @@ body {
     height: 107px;
     margin: 0 auto;
     position: relative;
+    .logo {
+      position: absolute;
+      top: 39px;
+      left: 19px;
+    }
+    .util-menu {
+      position: absolute;
+      top: 44px;
+      right: 26px;
+      li {
+        float: left;
+        & ~ li {
+          margin-left: 20px;
+        }
+        &.lang {
+          a {
+            position: relative;
+            display: inline-block;
+            font-size: 12px;
+            &::before {
+              display: inline-block;
+              position: absolute;
+              top: 0;
+              left: -28px;
+              content: '';
+              width: 18px;
+              height: 17px;
+              background: url('../image/common/icon-lang-1.png') no-repeat 0 0;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#gnb {
+  width: 658px;
+  position: absolute;
+  top: 0;
+  left: 204px;
+  text-align: center;
+  > li {
+    float: left;
+    width: 20%;
+    &:nth-child(1) {
+      ul {
+        display: block;
+      }
+    }
+    > a {
+      display: block;
+      font-size: 15px;
+      font-weight: bold;
+      height: 107px;
+      line-height: 107px;
+      transition: all 0.1s ease-in;
+      position: relative;
+      &::after {
+        content: '';
+        width: 0;
+        height: 2px;
+        background: #fff;
+        position: absolute;
+        left: 50%;
+        top: 66px;
+        transform: translateX(-50%);
+        transition: all 0.3s ease-in;
+      }
+      &:hover {
+        background-color: $mainColor-1;
+        color: #fff;
+        &::after {
+          width: 80px;
+        }
+      }
+    }
+  }
+  ul {
+    display: none;
   }
 }
