@@ -25,12 +25,15 @@ body {
       position: absolute;
       top: 44px;
       right: 26px;
-      li {
+
+      > li {
         float: left;
-        & ~ li {
-          margin-left: 20px;
+        .btn-allmenu {
+          position: relative;
+          z-index: 501;
         }
         &.lang {
+          margin-right: 20px;
           a {
             position: relative;
             display: inline-block;
@@ -45,6 +48,53 @@ body {
               height: 17px;
               background: url('../image/common/icon-lang-1.png') no-repeat 0 0;
               vertical-align: middle;
+            }
+          }
+        }
+      }
+      .allmenu-wrap {
+        position: fixed;
+        display: none;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #999;
+        z-index: 500;
+        .allmenu {
+          width: 100%;
+          height: 100%;
+          border: 1px solid #000;
+          overflow: hidden;
+          > li {
+            width: 20%;
+            height: 100%;
+            float: left;
+            ~ li {
+              border-left: 1px solid #ccc;
+            }
+
+            > div {
+              height: 100%;
+              width: 0;
+              overflow: hidden;
+              background-color: #fff;
+              transition: width 0.8s ease-in;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+      a {
+        &.on {
+          + .allmenu-wrap {
+            display: block;
+            .allmenu {
+              > li {
+                div {
+                  width: 100%;
+                }
+              }
             }
           }
         }
