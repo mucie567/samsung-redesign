@@ -1,7 +1,4 @@
 // 슬라이드 다운
-
-
-
 function gnbFnc(element) {
     var menu1 = element.find('>li>a');
     var subMenu1 = element.find('ul');
@@ -36,10 +33,24 @@ function gnbFnc(element) {
         }
     })
 }
+function allMenuFnc(element) {
+    element.on('click',function(e) {
+        $(this).toggleClass('on');
+        e.preventDefault();
+    })
+}
 $(function () { 
     gnbFnc($('#gnb'));
+    allMenuFnc($('.btn-allmenu'))
     $('.main-row-slide-1').slick({
         'autoplay' :true,
         'dots':true
     });
+    $('.main-row-slide-3').slick({
+        'autoplay' :true,
+        'dots':true
+    })
 });
+
+
+
