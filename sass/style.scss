@@ -272,20 +272,27 @@ body {
   }
 }
 #container {
-  display: none;
+  > * {
+    display: none;
+  }
   .main-row-1 {
+    display: block;
     max-width: $width-1;
     margin: 0 auto;
     max-height: 574px;
     overflow: hidden;
     margin-bottom: 40px;
     position: relative;
+    .slick-dotted.slick-slider {
+      margin-bottom: 0;
+    }
     .slick-dots {
       position: absolute;
-      bottom: 60px;
+      bottom: 10.45296167247387%; //60px
       left: 0;
       li {
-        width: 100px;
+        width: 9.124087591240876%; //100px;
+        min-width: 40px;
         height: 6px;
         &.slick-active {
           button {
@@ -304,13 +311,14 @@ body {
     }
   }
   .main-row-2 {
+    display: block;
     max-width: $width-1;
     margin: 0 auto 40px;
     .main-row-inner-2 {
       overflow: hidden;
       .product-list-1 {
         float: left;
-        width: 538px;
+        width: 49.08759124087591%; //538px;
         height: 588px;
         background-color: #f4f4f4;
         border-radius: 14px;
@@ -339,16 +347,16 @@ body {
       }
       .product-list-2 {
         float: right;
-        width: 538px;
+        width: 49.08759124087591%; //538px;
         height: 588px;
         > ul {
           width: 100%;
           overflow: hidden;
           li {
             float: left;
-            width: 259px;
+            width: 48.14126394052045%; //259px;
             &:nth-child(2n) {
-              margin-left: 20px;
+              margin-left: 3.717472118959108%; //20px;
             }
             &:nth-of-type(2) ~ li {
               margin-top: 20px;
@@ -367,6 +375,7 @@ body {
               .info-1 {
                 font-size: 14px;
                 font-weight: bold;
+                padding: 0 5px;
                 margin-bottom: 3px;
               }
               .info-2 {
@@ -388,6 +397,7 @@ body {
     }
   }
   .main-row-3 {
+    display: block;
     margin-bottom: 40px;
     overflow: hidden;
     .main-row-slide-3 {
@@ -418,6 +428,7 @@ body {
         .info-1 {
           font-size: 30px;
           font-weight: bold;
+          padding: 0 5px;
           margin-bottom: 35px;
         }
         .info-2 {
@@ -478,6 +489,7 @@ body {
     }
   }
   .main-row-4 {
+    display: block;
     margin-bottom: 110px;
     .main-row-inner-4 {
       max-width: $width-1;
@@ -771,5 +783,83 @@ body {
   #footer-wrap .copyright {
     font-size: 14px;
     text-align: center;
+  }
+}
+@media (max-width: 750px) {
+  #container {
+    .main-row-2 {
+      padding: 0 10px;
+      .main-row-inner-2 {
+        .product-list-1 {
+          float: none;
+          width: auto;
+          height: auto;
+          padding-bottom: 35px;
+          margin-bottom: 20px;
+        }
+        .product-list-2 {
+          float: none;
+          width: auto;
+          height: auto;
+          ul {
+            li {
+              a {
+                height: auto;
+                background-color: #fff;
+                border-radius: 0;
+                padding-top: 0;
+                .gallery {
+                  border-radius: 15px;
+                  overflow: hidden;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .main-row-3 {
+      .main-row-slide-3 {
+        .slide-list {
+          .info-1 {
+            font-size: 16px;
+            margin-bottom: 15px;
+          }
+          .info-2 {
+            a {
+              font-size: 12px;
+              height: 30px;
+              line-height: 30px;
+            }
+          }
+          .list-inner-1,
+          .list-inner-2,
+          .list-inner-3 {
+            padding: 45px 30px 30px 35px;
+          }
+        }
+        .slick-dots {
+          top: 14px;
+          li {
+            button {
+              padding: 0;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background-color: #222;
+              &:before {
+                content: none !important;
+              }
+            }
+            &.slick-active {
+              button {
+                background-color: #7f86b6;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
