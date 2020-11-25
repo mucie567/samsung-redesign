@@ -73,20 +73,22 @@ body {
             height: 2px;
             background-color: #222;
           }
-          &.on {
-            span {
-              display: none;
-            }
-            &::before,
-            &::after {
-              top: 50%;
-              bottom: auto;
-            }
-            &::before {
-              transform: rotate(45deg);
-            }
-            &::after {
-              transform: rotate(-45deg);
+          @media (min-width: 1096px) {
+            &.on {
+              span {
+                display: none;
+              }
+              &::before,
+              &::after {
+                top: 50%;
+                bottom: auto;
+              }
+              &::before {
+                transform: rotate(45deg);
+              }
+              &::after {
+                transform: rotate(-45deg);
+              }
             }
           }
         }
@@ -681,6 +683,9 @@ body {
 }
 //Tablet&& Mobile
 @media (max-width: 1095px) {
+  .allmenu-wrap {
+    display: none;
+  }
   #header-wrap {
     .header-inner {
       .logo {
@@ -703,7 +708,11 @@ body {
       color: #fff;
       padding-top: 100px;
       z-index: 600;
-      .btn-close {
+      transition: left 0.5s ease-in;
+      &.on {
+        left: 0;
+      }
+      .mobile-btn-close {
         display: block;
         position: absolute;
         top: 20px;
@@ -764,10 +773,11 @@ body {
       max-height: 0;
       overflow: hidden;
       background-color: #333;
-      transition: all 0.5s ease-in;
+      transition: max-height all 0.5s ease-in;
+      display: block !important;
+      height: auto !important;
       > li {
         > a {
-          display: block;
           min-height: 38px;
           line-height: 38px;
           padding-left: 40px;

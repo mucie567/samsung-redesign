@@ -15,15 +15,22 @@ function gnbFnc(element) {
     });
     headerWrap.append(headerBg);
     var oldMenu = null;
-    menu1.on('mouseover',function() {
-        if (oldMenu!=null) {
-            oldMenu.removeClass('on');
-        }
-       $(this).addClass('on'); 
-       subMenu1.stop(true).slideDown(500);
-       headerBg.stop(true).slideDown(500);
-       oldMenu=$(this);
+    menu1.on('mouseover focus',function() {
+        if (!$('html').hasClass('pc')) return;
+            // if (oldMenu!=null) {
+            //     oldMenu.removeClass('on');
+            // }
+            menu1.filter('.on').removeClass('on');
+           $(this).addClass('on'); 
+           subMenu1.stop(true).slideDown(500);
+           headerBg.stop(true).slideDown(500);
+           oldMenu=$(this);
     });
+    menu1.on('click',function(e){
+        if (!$('html').hasClass('mobile')) return;
+        $('this').toggleClass('on');
+        e.preventDefault();
+    })
     element.on('mouseleave',function() {
         subMenu1.stop(true).slideUp(100);
         headerBg.stop(true).slideUp(100);
@@ -35,11 +42,48 @@ function gnbFnc(element) {
 }
 function allMenuFnc(element) {
     element.on('click',function(e) {
-        $(this).toggleClass('on');
+        if ($('html').hasClass('mobile')) {
+            $('.gnb-wrap').addClass('on');
+        }else{
+            $(this).toggleClass('on');
+        }
+        e.preventDefault();
+    });
+    $('moblie-btn-close').on('click',function(e){
+        $('.gnb-wrap').removeClass('on');
         e.preventDefault();
     })
 }
+
+function deviceSizeChkFnc() {
+    var root = $('html');
+    $(window).on('resize',function () {
+        var w = $(this).innerWidth();
+        //pc 1096 이상
+        //mobile 1095 이하 751 이상
+        //small mobile 750 이하
+        root.attr('class','')
+        if (w >= 1096) {
+            root.addClass('pc')
+        }else if(w>= 751){
+            root.addClass('moblie')
+        }else{
+            root.addClass('small moblie')
+
+        }
+
+    });
+    $(window).trigger('resize');
+}
+
+
+
+
+
+
+
 $(function () { 
+    deviceSizeChkFnc();
     gnbFnc($('#gnb'));
     allMenuFnc($('.btn-allmenu'))
     $('.main-row-slide-1').slick({
