@@ -76,7 +76,18 @@ function deviceSizeChkFnc() {
     $(window).trigger('resize');
 }
 
-
+function mainVisualControls() {
+    $('.main-row-1 .controls a').on('click',function (e) {
+        if ($(this).hasClass('pause')) {
+            $('.main-row-slide-1').slick('slickPause');
+            $(this).removeClass('pause');
+        } else {
+            $('.main-row-slide-1').slick('slickPlay');
+            $(this).addClass('pause');
+        }
+        e.preventDefault();
+    })
+}
 
 
 
@@ -85,10 +96,11 @@ function deviceSizeChkFnc() {
 $(function () { 
     deviceSizeChkFnc();
     gnbFnc($('#gnb'));
+    mainVisualControls();
     allMenuFnc($('.btn-allmenu'))
     $('.main-row-slide-1').slick({
         'autoplay' :true,
-        'dots':true
+        'dots':true,
     });
     $('.main-row-slide-3').slick({
         'autoplay' :true,

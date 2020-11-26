@@ -274,17 +274,26 @@ body {
   }
 }
 #container {
-  > * {
-    display: none;
-  }
   .main-row-1 {
-    display: block;
     max-width: $width-1;
     margin: 0 auto;
     max-height: 574px;
     overflow: hidden;
     margin-bottom: 40px;
     position: relative;
+    .controls a {
+      position: absolute;
+      bottom: 9%;
+      left: 65%;
+      margin-left: 5%; //174px
+      width: 25px;
+      height: 25px;
+      background: url('../image/main/btn-start.png') no-repeat 0 0;
+      text-indent: -9999px;
+      &.pause {
+        background: url('../image/main/btn-pause.png') no-repeat 0 0;
+      }
+    }
     .slick-dotted.slick-slider {
       margin-bottom: 0;
     }
@@ -313,7 +322,6 @@ body {
     }
   }
   .main-row-2 {
-    display: block;
     max-width: $width-1;
     margin: 0 auto 40px;
     .main-row-inner-2 {
@@ -399,7 +407,6 @@ body {
     }
   }
   .main-row-3 {
-    display: block;
     margin-bottom: 40px;
     overflow: hidden;
     .main-row-slide-3 {
@@ -491,7 +498,6 @@ body {
     }
   }
   .main-row-4 {
-    display: block;
     margin-bottom: 110px;
     .main-row-inner-4 {
       max-width: $width-1;
@@ -499,11 +505,11 @@ body {
       > ul {
         overflow: hidden;
         > li {
-          width: 352px;
+          width: 32.11678832116788%; //352px;
           float: left;
           text-align: center;
           ~ li {
-            margin-left: 20px;
+            margin-left: 1.824817518248175%; //20px;
           }
           .gallery {
             margin-bottom: 25px;
@@ -525,6 +531,7 @@ body {
   }
   .main-row-5 {
     margin-bottom: 75px;
+    overflow-x: auto;
     .sns-list {
       overflow: hidden;
       width: 875px;
@@ -866,6 +873,23 @@ body {
               button {
                 background-color: #7f86b6;
               }
+            }
+          }
+        }
+      }
+    }
+    .main-row-4 {
+      padding: 0 10px;
+      .main-row-inner-4 {
+        > ul {
+          > li {
+            float: none;
+            width: auto;
+            max-width: 352px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            ~ li {
+              margin-top: 30px;
             }
           }
         }
