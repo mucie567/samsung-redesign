@@ -17,7 +17,7 @@ function focusOnFnc1(){
             $(this).closest('.input-wrap').addClass('valid')
             if($(this).attr('name') == 'user-email'){
                 var v = $(this).val();
-                if (v.split('@').length !=2) {
+                if (v.split('@').length !=2 || v.split('.').length < 2 || v.split('.').length >3) {
                     $(this).closest('.input-wrap').addClass('error');
                 } else {
                     $(this).closest('.input-wrap').removeClass('error');
