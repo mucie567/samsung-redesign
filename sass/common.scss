@@ -119,6 +119,17 @@
       //   border-bottom: 2px solid #808080;
     }
   }
+  .error-txt {
+    color: #f00;
+    padding-top: 5px;
+    display: none;
+    margin-bottom: -13px;
+  }
+  &.error {
+    .error-txt {
+      display: block;
+    }
+  }
 }
 
 .btn-group {

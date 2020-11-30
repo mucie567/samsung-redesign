@@ -24,6 +24,7 @@
     }
     .contents {
       padding-top: 70px;
+      padding-bottom: 70px;
       .frm-title {
         font-size: 18px;
         font-weight: bold;
@@ -38,6 +39,20 @@
           max-width: 764px;
           margin: 0 auto;
           padding: 6.505576208178439% 8.550185873605948%; //70px 92px;
+          .input-wrap {
+            &.valid {
+              .inp-txt {
+                + label {
+                  opacity: 0;
+                }
+                &:focus {
+                  + label {
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
           .info-guide {
             padding-top: 20px;
             padding-left: 20px;
