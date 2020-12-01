@@ -17,11 +17,18 @@ function focusOnFnc1(){
             $(this).closest('.input-wrap').addClass('valid')
             if($(this).attr('name') == 'user-email'){
                 var v = $(this).val();
-                if (v.split('@').length !=2 || v.split('.').length < 2 || v.split('.').length >3) {
-                    $(this).closest('.input-wrap').addClass('error');
-                } else {
+                var reg = /^[a-zA-Z][\w]*@[\w]+\.[a-zA-Z]{2,3}[a-zA-Z.]*$/g;
+                
+                if (reg.test(v)) {
                     $(this).closest('.input-wrap').removeClass('error');
+                } else {
+                    $(this).closest('.input-wrap').addClass('error');
                 }
+                // if (v.split('@').length !=2 || v.split('.').length < 2 || v.split('.').length >3) {
+                //     $(this).closest('.input-wrap').addClass('error');
+                // } else {
+                //     $(this).closest('.input-wrap').removeClass('error');
+                // }
             }
         }  else {
             $(this).closest('.input-wrap').removeClass('valid')
